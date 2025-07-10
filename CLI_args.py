@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from datetime import datetime
+import json_manipulation
 import json
 # USER INPUTS INTO THE CLI #
 # Task name
@@ -19,6 +20,8 @@ add_parser = subparsers.add_parser("add", help="Add a new task")
 add_parser.add_argument("description", help = "Name/Short description of the task you want to add")
 add_parser.add_argument("-note", "--notes", help = "Any notes important for succesfull completion of the task")
 add_parser.add_argument("-due", "--due_date", help= "Due date for the task in format YYYY-MM-DD")
+add_parser.add_argument("-s", "--status", choices=["to-do", "in-progress", "done"],
+                        default = "to-do", help="initial status of your task")
 
 # list command
 list_parser = subparsers.add_parser("list", help="lists all tasks")
@@ -41,42 +44,50 @@ delete_parser = subparsers.add_parser("delete", help = "delete a task with a giv
 delete_parser.add_argument("id", help="id of task to be deleted")
 
 
-
-
-
-
 # Parse arguments
 args = parser.parse_args()
 
-
-
-def create_task_dict(task_list, args):
-    
-    if not task_list:
-        current_id = 1
-    else:
-        last_id = max(task["id"] for task in task_list)
-        current_id = last_id + 1
-
-    time_stamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    task_dict = {"id": current_id,
-             "description": args.description,
-             "status": "to-do",
-             "dueDate": args.due_date,
-             "notes": args.notes,
-             "createdAt": time_stamp,
-             "updatedAt": time_stamp}
-    return(task_dict)
-
-
-
 if args.command == "add":
-    print("Description: ", args.description)
-    print("Due date: ",args.due_date)
 
+    # load the json file containing task database
+    task_list = json_manipulation.load_tasks()
+
+    # create the dictionary for the new task
+    new_task = json_manipulation.create_task_dict(task_list, args)
+
+    # add the task to the database
+    task_list.append(new_task)
+
+    json_manipulation.save_tasks(task_list, filename = "tasks.json")
 
 elif args.command == "list":
-    print("task types to be listed: ", args.task_types)
+    #print("task types to be listed: ", args.task_types)
+    task_list = json_manipulation.load_tasks(filename="tasks.json")
+
+
+    if args.task_types == "all":
+        for task in task_list:
+            print(task)
+    else:
+        filtered_tasks = [task for task in task_list if task["status"] == args.task_types]
+        print(filtered_tasks)
+        for task in filtered_tasks:
+            print(task)
+
+elif args.command == "delete":
+
+    task_list = json_manipulation.load_tasks(filename="tasks.json")
+
+    # conditionally delete the task dictionary with specified args.id
+    target_id = args.id
+    for index, task in enumerate(task_list):
+        if task["id"] == target_id:
+            target_index = index
+        else:
+            Exception("No task with specified ID found")
+    
+    task_list.pop(index = target_index)
+
 elif args.command == "mark":
     print("task id to be updated:", args.id)
     print("mark of the updated task: ", args.mark )

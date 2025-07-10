@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "description": "Buy Milk",
+        "status": "to-do",
+        "dueDate": "2025-11-07",
+        "notes": "Lactose free",
+        "createdAt": "2025-07-10 13:54:15",
+        "updatedAt": "2025-07-10 13:54:15"
+    },
+    {
+        "id": 2,
+        "description": "Buy Milk 1",
+        "status": "to-do",
+        "dueDate": "2025-11-07",
+        "notes": "Lactose free",
+        "createdAt": "2025-07-10 14:29:55",
+        "updatedAt": "2025-07-10 14:29:55"
+    },
+    {
+        "id": 3,
+        "description": "Buy Milk 1",
+        "status": "to-do",
+        "dueDate": "2025-11-07",
+        "notes": "Lactose free",
+        "createdAt": "2025-07-10 14:29:57",
+        "updatedAt": "2025-07-10 14:29:57"
+    },
+    {
+        "id": 4,
+        "description": "Buy Milk 1",
+        "status": "to-do",
+        "dueDate": "2025-11-07",
+        "notes": "Lactose free",
+        "createdAt": "2025-07-10 14:29:58",
+        "updatedAt": "2025-07-10 14:29:58"
+    },
+    {
+        "id": 5,
+        "description": "Buy Milk 2",
+        "status": "to-do",
+        "dueDate": "2025-11-07",
+        "notes": "Lactose free",
+        "createdAt": "2025-07-10 14:30:53",
+        "updatedAt": "2025-07-10 14:30:53"
+    },
+    {
+        "id": 6,
+        "description": "Buy Milk 1",
+        "status": "in-progress",
+        "dueDate": "2025-11-07",
+        "notes": "Lactose free",
+        "createdAt": "2025-07-10 14:31:31",
+        "updatedAt": "2025-07-10 14:31:31"
+    },
+    {
+        "id": 7,
+        "description": "Buy Milk 1",
+        "status": "in-progress",
+        "dueDate": "2025-11-07",
+        "notes": "Lactose free",
+        "createdAt": "2025-07-10 14:31:38",
+        "updatedAt": "2025-07-10 14:31:38"
+    },
+    {
+        "id": 8,
+        "description": "Buy Milk 1",
+        "status": "done",
+        "dueDate": "2025-11-07",
+        "notes": "Lactose free",
+        "createdAt": "2025-07-10 14:31:48",
+        "updatedAt": "2025-07-10 14:31:48"
+    }
+]

@@ -1,0 +1,10 @@
+Sample task:
+
+{"id": 1,
+ "description": "Code in Python",
+ "status": "To-do",
+ "Category": "Deep work, administrative/maintainance"
+ "due date": "2026-10-08 12:00"
+ "created":"2025-10-07 9:59:50",
+ "updated:"2025-11-07 9:59:50"
+ }

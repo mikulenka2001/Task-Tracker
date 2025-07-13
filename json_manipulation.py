@@ -40,3 +40,25 @@ def create_task_dict(task_list, args):
              "createdAt": time_stamp,
              "updatedAt": time_stamp}
     return(task_dict)
+
+def print_task(task_dict):
+    separator = f"\n" + "-"*37
+    print(separator)
+    print("id: ", task_dict["id"])
+    print("description: ", task_dict["description"])
+    print("status: ", task_dict["status"])
+    print("dueDate: ", task_dict["dueDate"])
+    print("createdAt: ", task_dict["createdAt"])
+    print("updatedAt:", task_dict["updatedAt"])
+    print("notes: ", task_dict["notes"], separator)
+
+def print_task(task_dict):
+    separator = f"\n" + "-"*37
+    print(separator)
+    print("id: ", task_dict["id"])
+    print("description: ", task_dict["description"])
+    print("status: ", task_dict["status"])
+    print("dueDate: ", task_dict["dueDate"])
+    print("createdAt: ", task_dict["createdAt"])
+    print("updatedAt:", task_dict["updatedAt"])
+    print("notes: ", task_dict["notes"], separator)
